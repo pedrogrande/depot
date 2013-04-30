@@ -1,5 +1,9 @@
 class LineItem < ActiveRecord::Base
   belongs_to :cart
   belongs_to :product
-  accepts_nested_attributes_for :product
+  attr_accessible :product
+
+ def total_price 
+ 	product.price * quantity
+ end
 end
